@@ -3,7 +3,21 @@ import Context from '../context/Context';
 import fetchApi from '../service/fetchApi';
 
 function Table() {
-  const { planets, setPlanets, filterByName } = useContext(Context);
+  const {
+    planets, setPlanets, filterByName, filterByNumericValues,
+  } = useContext(Context);
+
+  function checkFilter(infoPlanet) {
+    const info = filterByNumericValues.every((t) => {
+      if (t.comparison === 'maior que') return parseFloat(infoPlanet[t.column]) > t.value;
+      if (t.comparison === 'menor que') return parseFloat(infoPlanet[t.column]) < t.value;
+      if (t.comparison === 'igual a') {
+        return parseFloat(t.value) === parseFloat(infoPlanet[t.column]);
+      }
+      return false;
+    });
+    return info;
+  }
 
   useEffect(() => {
     fetchApi().then((response) => setPlanets(response));
@@ -35,6 +49,11 @@ function Table() {
             .filter((planet) => (filterByName
               ? planet.name.includes(filterByName)
               : true))
+            .filter((planet) => (
+              filterByNumericValues.length > 0
+                ? checkFilter(planet)
+                : true
+            ))
             .map((planet) => (
               <tr key={ planet.name }>
                 <td>{planet.name}</td>
