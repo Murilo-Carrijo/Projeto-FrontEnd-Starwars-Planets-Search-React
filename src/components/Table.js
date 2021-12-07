@@ -3,7 +3,7 @@ import Context from '../context/Context';
 import fetchApi from '../service/fetchApi';
 
 function Table() {
-  const { planets, setPlanets, filterName } = useContext(Context);
+  const { planets, setPlanets, filterByName } = useContext(Context);
 
   useEffect(() => {
     fetchApi().then((response) => setPlanets(response));
@@ -32,8 +32,8 @@ function Table() {
       <tbody>
         {
           planets
-            .filter((planet) => (filterName
-              ? planet.name.includes(filterName)
+            .filter((planet) => (filterByName
+              ? planet.name.includes(filterByName)
               : true))
             .map((planet) => (
               <tr key={ planet.name }>

@@ -4,12 +4,12 @@ import Context from './Context';
 
 function Provider({ children }) {
   const [planets, setPlanets] = useState([]);
-  const [filterName, setFilterName] = useState('');
+  const [filterByName, setFilterByName] = useState('');
   const contexValue = {
     planets,
     setPlanets,
-    filterName,
-    setFilterName,
+    filterByName,
+    setFilterByName,
   };
 
   return (
@@ -20,7 +20,7 @@ function Provider({ children }) {
 }
 
 Provider.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.array).isRequired,
+  children: PropTypes.arrayOf().isRequired,
 };
 
 export default Provider;
