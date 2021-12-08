@@ -9,7 +9,18 @@ function Provider({ children }) {
   const [comparison, setComparison] = useState('maior que');
   const [value, setValue] = useState('0');
   const [filterByNumericValues, setFilterByNumericValues] = useState([]);
-  const [filter, setFilter] = useState(false);
+  const [columnValues, setColumnValues] = useState([
+    'population',
+    'orbital_period',
+    'diameter',
+    'rotation_period',
+    'surface_water',
+  ]);
+  const [comparisonValues, setComparisonValues] = useState([
+    'maior que',
+    'menor que',
+    'igual a',
+  ]);
 
   const contexValue = {
     planets,
@@ -24,8 +35,10 @@ function Provider({ children }) {
     setValue,
     filterByNumericValues,
     setFilterByNumericValues,
-    filter,
-    setFilter,
+    columnValues,
+    setColumnValues,
+    comparisonValues,
+    setComparisonValues,
   };
 
   return (

@@ -9,15 +9,17 @@ function FilterForColumn() {
     setComparison,
     value,
     setValue,
+    filterByNumericValues,
     setFilterByNumericValues,
-    setFilter,
+    columnValues,
+    comparisonValues,
   } = useContext(Context);
 
   function filterForNumber() {
     setFilterByNumericValues(([
+      ...filterByNumericValues,
       { column, comparison, value },
     ]));
-    setFilter(true);
   }
 
   return (
@@ -26,20 +28,20 @@ function FilterForColumn() {
         data-testid="column-filter"
         onChange={ (e) => setColumn(e.target.value) }
       >
-        <option value="population">population</option>
-        <option value="orbital_period">orbital_period</option>
-        <option value="diameter">diameter</option>
-        <option value="rotation_period">rotation_period</option>
-        <option value="surface_water">surface_water</option>
+        {columnValues.map((columnValue) => (
+          <option key={ columnValue } value={ columnValue }>{ columnValue }</option>
+        ))}
       </select>
 
       <select
         data-testid="comparison-filter"
         onChange={ (e) => setComparison(e.target.value) }
       >
-        <option value="maior que">maior que</option>
-        <option value="menor que">menor que</option>
-        <option value="igual a">igual a</option>
+        {comparisonValues.map((comparisonValue) => (
+          <option key={ comparisonValue } value={ comparisonValue }>
+            { comparisonValue }
+          </option>
+        ))}
       </select>
 
       <input

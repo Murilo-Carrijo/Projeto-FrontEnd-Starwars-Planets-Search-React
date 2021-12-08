@@ -24,3 +24,5 @@ function FilterForName() {
 }
 
 export default FilterForName;
+
+// Ideia para o filtro retirada do video https://www.youtube.com/watch?v=5Tq4-UgPTDs&t=158s
