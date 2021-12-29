@@ -12,6 +12,7 @@ function FilterForColumn() {
     filterByNumericValues,
     setFilterByNumericValues,
     columnValues,
+    setColumnValues,
     comparisonValues,
   } = useContext(Context);
 
@@ -20,6 +21,9 @@ function FilterForColumn() {
       ...filterByNumericValues,
       { column, comparison, value },
     ]));
+    setColumnValues(
+      columnValues.filter((item) => item !== column),
+    );
   }
 
   return (

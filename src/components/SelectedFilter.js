@@ -7,11 +7,11 @@ function SelectedFilter() {
     setFilterByNumericValues,
   } = useContext(Context);
 
-  function removeFilter(value) {
-    const remove = filterByNumericValues.filter(
+  function renderFilter(value) {
+    const render = filterByNumericValues.filter(
       (item) => (item.column !== value.column),
     );
-    setFilterByNumericValues(remove);
+    setFilterByNumericValues(render);
   }
 
   return (
@@ -25,7 +25,7 @@ function SelectedFilter() {
         {'  '}
         <button
           type="button"
-          onClick={ () => removeFilter(filter) }
+          onClick={ () => renderFilter(filter) }
         >
           x
         </button>
