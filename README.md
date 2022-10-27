@@ -58,8 +58,6 @@ O projeto foi realizado durante o curso da Trybe e os seguintes requisitos preci
   
   - [ ]  5 - _Apague o filtro de valores numéricos e desfaça as filtragens dos dados da tabela ao clicar no ícone de X de um dos filtros_
   
-  - [ ]  6 - _Ordene as colunas de forma ascendente ou descendente_
-  
   ### Requisitos Bônus:
 
   - [ ]  6 - _Ordene as colunas de forma ascendente ou descendente_
